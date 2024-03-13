@@ -33,19 +33,19 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend lydiaojoawo-tech-frontend
+frontend clickviral-frontend
         bind *:80
         mode http
         http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X_Forwarded-Proto http
-        default_backend lydiaojoawo-tech-backend
+        default_backend clickviral-backend
 
-frontend lydiaojoawo-tech-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.lydiaojoawo.tech.pem
+frontend clickviral-frontend-https
+        bind *:443 ssl crt /etc/haproxy/certs/www.nubuhorodivine.tech.pem
         http-request set-header X-Forwarded-Proto https
-        default_backend lydiaojoawo-tech-backend
+        default_backend clickviral-backend
 
-backend lydiaojoawo-tech-backend
+backend clickviral-backend
         balance roundrobin
-        server 6005-web-01 54.91.184.166:80 check
-        server 6005-web-02  3.85.92.128:80 check
+        server 5979-web-01 3.88.51.18:80 check
+        server 5979-web-02 54.209.202.31:80 check
